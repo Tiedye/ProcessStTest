@@ -1,0 +1,15 @@
+<form ng-if="!$ctrl.showVideo" action="https://upload.wistia.com/" method="POST" enctype="multipart/form-data" data-file-upload="options" data-ng-class="{'fileupload-processing': processing() || loadingFiles}">
+
+  <input type="hidden" name="api_password" value="98bb6bda6082900c19a7f2163d3da46e5f2fa3d5153d87d79d03c8062388f2d9">
+
+  <span class="btn btn-success fileinput-button" ng-class="{disabled: disabled}">
+    <span>Upload</span>
+    <input type="file" name="file" accept="video/*">
+  </span>
+  <span class="fileupload-process"></span>
+  <div class="fade" data-ng-class="{in: active()}">
+    <div class="progress progress-striped active" data-file-upload-progress="progress()"><div class="progress-bar progress-bar-success" data-ng-style="{width: num + '%'}"></div></div>
+  </div>
+</form>
+
+<iframe ng-if="$ctrl.showVideo" ng-src="{{$ctrl.videoUrl}}" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
